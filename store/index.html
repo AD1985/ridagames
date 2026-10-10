@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XS3CQ467NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XS3CQ467NH');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+<title>RidaGames Store — Curated Gaming Gear, Collectibles &amp; Apparel</title>
+<meta name="description" content="Discover curated gaming merchandise, retro arcade collectibles, desk mats, and apparel at the official RidaGames Store. Preview upcoming drops.">
+<meta name="keywords" content="gaming merchandise, retro arcade store, desk mat, gamer collectibles, ridagames store">
+<link rel="canonical" href="https://ridagames.com/store/index.html">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ridagames.com/store/index.html">
+<meta property="og:title" content="RidaGames Store — Curated Gaming Gear, Collectibles &amp; Apparel">
+<meta property="og:description" content="Curated retro merchandise, desk accessories, and collectibles crafted for gamers.">
+<meta property="og:image" content="../home-page-background.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RidaGames Store — Curated Gaming Gear &amp; Collectibles">
+<meta name="twitter:description" content="Curated retro merchandise and desk accessories for gaming enthusiasts.">
+<meta name="twitter:image" content="../home-page-background.jpg">
+
+<!-- Structured Data (JSON-LD) for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "RidaGames Store",
+  "description": "Curated merchandise, desk mats, and collectibles inspired by retro gaming culture.",
+  "url": "https://ridagames.com/store/index.html",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Product",
+          "name": "Vintage Arcade Desk Mat",
+          "url": "https://ridagames.com/store/product1.html",
+          "description": "Premium micro-weave felt desk pad featuring retro isometric arcade geometry.",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/PreOrder",
+            "priceCurrency": "INR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Product",
+          "name": "Pixel Heart Enamel Pin",
+          "url": "https://ridagames.com/store/product2.html",
+          "description": "Collector badge forged in antique copper finish with dual rubber clutch.",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/PreOrder",
+            "priceCurrency": "INR"
+          }
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-outer: #e7ddc9;
+    --bg: #f8f3e8;
+    --panel: #fffdf7;
+    --ink: #221d15;
+    --muted: #7c7161;
+    --accent: #b3532c;
+    --accent-soft: #ecd6b8;
+    --line: #e2d5b9;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    min-height: 100%;
+    background: var(--bg-outer);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+
+  .frame {
+    max-width: 1760px;
+    margin: 0 auto;
+    padding: 14px 16px;
+  }
+  .sheet {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: 28px clamp(24px, 4vw, 72px) 32px;
+    box-shadow: 0 30px 60px rgba(43, 32, 15, 0.12);
+  }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+    padding: 6px 0 20px;
+  }
+  .brand { text-decoration: none; }
+  .brand-name {
+    display: block;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+  }
+  .brand-tag {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    font-size: 0.92rem;
+  }
+  .nav-links a { text-decoration: none; color: var(--ink); }
+  .nav-links a:hover, .nav-links a.active { color: var(--accent); font-weight: 600; }
+
+  /* ---------- Breadcrumb ---------- */
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin: 8px 0 20px;
+  }
+  .breadcrumb a { text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+  .breadcrumb-sep { font-size: 0.7rem; opacity: 0.6; }
+
+  /* ---------- Header ---------- */
+  .page-header {
+    padding: 10px 0 32px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 34px;
+  }
+  .kicker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    font-weight: 600;
+    margin: 0 0 12px;
+  }
+  .kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .page-header h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    line-height: 1.08;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+  }
+  .page-desc {
+    max-width: 60ch;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ---------- Product Grid ---------- */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    margin-bottom: 48px;
+  }
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 20px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .product-card:hover, .product-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 32px rgba(43, 32, 15, 0.12);
+  }
+  .product-thumb {
+    aspect-ratio: 16 / 10;
+    border-radius: 14px;
+    background: linear-gradient(145deg, #e8ece0, #d3ddc4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--accent);
+    border: 1px solid var(--line);
+    margin-bottom: 18px;
+  }
+  .product-title {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .product-status {
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .product-desc {
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0 0 16px;
+    flex-grow: 1;
+  }
+  .product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  /* ---------- Notification Box ---------- */
+  .notify-box {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .notify-box h2 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    margin: 0 0 10px;
+  }
+  .notify-box p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 50ch;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer {
+    text-align: center;
+    padding: 34px 0 10px;
+    border-top: 1px solid var(--line);
+    margin-top: 36px;
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  @media (max-width: 768px) {
+    .products-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .frame { padding: 12px; }
+    .sheet { padding: 20px 16px 20px; border-radius: 20px; }
+    .nav-links { gap: 16px; font-size: 0.85rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <div class="sheet">
+      <!-- Nav -->
+      <header class="nav">
+        <a class="brand" href="../index.html">
+          <span class="brand-name">RidaGames</span>
+          <span class="brand-tag">Curated Store</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="../index.html">Home</a>
+          <a href="../games/index.html">Games</a>
+          <a href="../stories/index.html">Stories</a>
+          <a href="index.html" class="active">Store</a>
+          <a href="../news/index.html">News</a>
+        </nav>
+      </header>
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-sep">&gt;</span>
+        <span aria-current="page">Store</span>
+      </nav>
+
+      <main>
+        <!-- Header -->
+        <header class="page-header">
+          <p class="kicker"><span class="dot"></span>CURATED GEAR &bull; DROP 01</p>
+          <h1>The RidaGames Store</h1>
+          <p class="page-desc">Handcrafted desk equipment, retro gaming merchandise, and limited edition artisan goods designed with passion.</p>
+        </header>
+
+        <!-- Products Grid -->
+        <section aria-labelledby="store-items-heading">
+          <h2 id="store-items-heading" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;">Featured Store Items</h2>
+          <div class="products-grid">
+            <article>
+              <a class="product-card" href="product1.html">
+                <div class="product-thumb" aria-hidden="true">&#9670;</div>
+                <div class="product-status">Drop 01 &bull; Coming Soon</div>
+                <h3 class="product-title">Vintage Arcade Desk Mat</h3>
+                <p class="product-desc">Ultra-dense stitched felt desk pad showcasing retro isometric grid vectors. Designed for precision mouse gliding and keyboard acoustics.</p>
+                <div class="product-footer">
+                  <span>View Product Details</span>
+                  <span>&rarr;</span>
+                </div>
+              </a>
+            </article>
+
+            <article>
+              <a class="product-card" href="product2.html">
+                <div class="product-thumb" aria-hidden="true">&#9671;</div>
+                <div class="product-status">Drop 01 &bull; Coming Soon</div>
+                <h3 class="product-title">Pixel Heart Enamel Pin</h3>
+                <p class="product-desc">Collector's enamel pin badge finished with polished antique copper borders and rubber clutches for jacket lapels or backpack straps.</p>
+                <div class="product-footer">
+                  <span>View Product Details</span>
+                  <span>&rarr;</span>
+                </div>
+              </a>
+            </article>
+          </div>
+        </section>
+
+        <!-- Store Notice -->
+        <section class="notify-box">
+          <h2>Drop 01 is Under Production</h2>
+          <p>We are putting the final touches on our first batch of physical goods. Stay tuned for official release dates and availability announcements.</p>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>&copy; RidaGames &bull; <a href="../index.html">Home</a> &bull; <a href="../games/index.html">Games</a> &bull; <a href="../stories/index.html">Stories</a> &bull; <a href="../news/index.html">News</a></p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

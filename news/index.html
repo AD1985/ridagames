@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XS3CQ467NH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XS3CQ467NH');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+<title>Gaming News &amp; Updates — Devlogs &amp; Studio Dispatches | RidaGames</title>
+<meta name="description" content="Stay up to date with the latest gaming news, patch notes, development updates, and studio announcements from RidaGames.">
+<meta name="keywords" content="gaming news, indie game devlog, patch notes, arcade updates, ridagames news">
+<link rel="canonical" href="https://ridagames.com/news/index.html">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ridagames.com/news/index.html">
+<meta property="og:title" content="Gaming News &amp; Updates — Devlogs &amp; Studio Dispatches | RidaGames">
+<meta property="og:description" content="The latest dispatches, engine updates, and releases from the RidaGames team.">
+<meta property="og:image" content="../home-page-background.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gaming News &amp; Updates | RidaGames">
+<meta name="twitter:description" content="Latest announcements, game patches, and editorials from RidaGames.">
+<meta name="twitter:image" content="../home-page-background.jpg">
+
+<!-- Structured Data (JSON-LD) for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "RidaGames News & Dispatches",
+  "description": "Studio devlogs, browser game engine updates, and release announcements.",
+  "url": "https://ridagames.com/news/index.html",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "News 1: Studio Announcement & Roadmap",
+          "url": "https://ridagames.com/news/news1.html",
+          "description": "Latest announcements and roadmap updates from the RidaGames development team."
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "News 2: Arcade Engine Physics Revamp",
+          "url": "https://ridagames.com/news/news2.html",
+          "description": "Overview of new touch physics and responsive controls for browser games."
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-outer: #e7ddc9;
+    --bg: #f8f3e8;
+    --panel: #fffdf7;
+    --ink: #221d15;
+    --muted: #7c7161;
+    --accent: #b3532c;
+    --accent-soft: #ecd6b8;
+    --line: #e2d5b9;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    min-height: 100%;
+    background: var(--bg-outer);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+
+  .frame {
+    max-width: 1760px;
+    margin: 0 auto;
+    padding: 14px 16px;
+  }
+  .sheet {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: 28px clamp(24px, 4vw, 72px) 32px;
+    box-shadow: 0 30px 60px rgba(43, 32, 15, 0.12);
+  }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+    padding: 6px 0 20px;
+  }
+  .brand { text-decoration: none; }
+  .brand-name {
+    display: block;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+  }
+  .brand-tag {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    font-size: 0.92rem;
+  }
+  .nav-links a { text-decoration: none; color: var(--ink); }
+  .nav-links a:hover, .nav-links a.active { color: var(--accent); font-weight: 600; }
+
+  /* ---------- Breadcrumb ---------- */
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin: 8px 0 20px;
+  }
+  .breadcrumb a { text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+  .breadcrumb-sep { font-size: 0.7rem; opacity: 0.6; }
+
+  /* ---------- Header ---------- */
+  .page-header {
+    padding: 10px 0 32px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 34px;
+  }
+  .kicker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    font-weight: 600;
+    margin: 0 0 12px;
+  }
+  .kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .page-header h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    line-height: 1.08;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+  }
+  .page-desc {
+    max-width: 60ch;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ---------- News Articles List ---------- */
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    margin-bottom: 48px;
+  }
+  .news-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 22px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .news-card:hover, .news-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 32px rgba(43, 32, 15, 0.12);
+  }
+  .news-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .news-title {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .news-summary {
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0 0 18px;
+    flex-grow: 1;
+  }
+  .news-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer {
+    text-align: center;
+    padding: 34px 0 10px;
+    border-top: 1px solid var(--line);
+    margin-top: 36px;
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  @media (max-width: 768px) {
+    .news-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .frame { padding: 12px; }
+    .sheet { padding: 20px 16px 20px; border-radius: 20px; }
+    .nav-links { gap: 16px; font-size: 0.85rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <div class="sheet">
+      <!-- Nav -->
+      <header class="nav">
+        <a class="brand" href="../index.html">
+          <span class="brand-name">RidaGames</span>
+          <span class="brand-tag">Dispatches</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="../index.html">Home</a>
+          <a href="../games/index.html">Games</a>
+          <a href="../stories/index.html">Stories</a>
+          <a href="../store/index.html">Store</a>
+          <a href="index.html" class="active">News</a>
+        </nav>
+      </header>
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-sep">&gt;</span>
+        <span aria-current="page">News</span>
+      </nav>
+
+      <main>
+        <!-- Header -->
+        <header class="page-header">
+          <p class="kicker"><span class="dot"></span>UPDATES &bull; LOGS &bull; RELEASES</p>
+          <h1>Dispatches &amp; News</h1>
+          <p class="page-desc">Changelogs, developer notes, gameplay patch updates, and reflections from the RidaGames workshop.</p>
+        </header>
+
+        <!-- News Articles -->
+        <section aria-labelledby="news-articles-heading">
+          <h2 id="news-articles-heading" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;">Recent News Articles</h2>
+          <div class="news-grid">
+            <article>
+              <a class="news-card" href="news1.html">
+                <span class="news-badge">Studio Update</span>
+                <h3 class="news-title">News 1: Studio Roadmap &amp; Releases</h3>
+                <p class="news-summary">A look at what we've built, upcoming game additions, and our commitment to instant, friction-free browser play.</p>
+                <div class="news-footer">
+                  <span>Read Article</span>
+                  <span>&rarr;</span>
+                </div>
+              </a>
+            </article>
+
+            <article>
+              <a class="news-card" href="news2.html">
+                <span class="news-badge">Changelog</span>
+                <h3 class="news-title">News 2: Touch Controls &amp; Engine Enhancements</h3>
+                <p class="news-summary">Details on mobile touch calibration, high-DPI canvas rendering, and zero-latency inputs across our arcade catalog.</p>
+                <div class="news-footer">
+                  <span>Read Article</span>
+                  <span>&rarr;</span>
+                </div>
+              </a>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>&copy; RidaGames &bull; <a href="../index.html">Home</a> &bull; <a href="../games/index.html">Games</a> &bull; <a href="../stories/index.html">Stories</a> &bull; <a href="../store/index.html">Store</a></p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

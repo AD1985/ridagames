@@ -163,6 +163,7 @@
     50% { opacity: 1; transform: scale(1.06); }
   }
 </style>
+<script src="../../js/player.js"></script>
 </head>
 <body>
 <div id="stage">
@@ -186,6 +187,7 @@
         <div class="big" id="finalScore">Score: 0</div>
         <div class="best-badge" id="newBestMsg">★ New Best Score! ★</div>
         <div class="tap-restart">Tap to Restart</div>
+        <a class="btn ghost" href="../index.html" onclick="event.stopPropagation(); window.location.href='../index.html'; return false;" onpointerdown="event.stopPropagation()" style="display:inline-block;text-decoration:none;text-align:center">Back to Games</a>
       </div>
     </div>
   </div>

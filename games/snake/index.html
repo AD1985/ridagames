@@ -154,6 +154,7 @@
     transition: opacity .3s;
   }
 </style>
+<script src="../../js/player.js"></script>
 </head>
 <body>
 <div id="stage">
@@ -178,6 +179,7 @@
         <h1>Paused</h1>
         <button class="btn" id="resumeBtn">Resume</button>
         <button class="btn ghost" id="restartFromPauseBtn">Restart</button>
+        <a class="btn ghost" href="../index.html" onclick="event.stopPropagation(); window.location.href='../index.html'; return false;" onpointerdown="event.stopPropagation()" style="display:inline-block;text-decoration:none;text-align:center">Back to Games</a>
       </div>
 
       <div class="overlay hidden" id="gameOverOverlay">
@@ -185,6 +187,7 @@
         <div class="big" id="finalScore">Score: 0</div>
         <p id="newBestMsg" style="color:var(--accent);display:none;">New Best Score!</p>
         <button class="btn" id="retryBtn">Play Again</button>
+        <a class="btn ghost" href="../index.html" onclick="event.stopPropagation(); window.location.href='../index.html'; return false;" onpointerdown="event.stopPropagation()" style="display:inline-block;text-decoration:none;text-align:center">Back to Games</a>
       </div>
     </div>
   </div>

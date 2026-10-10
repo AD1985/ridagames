@@ -241,6 +241,7 @@
   .padBtn:active { background: rgba(255,255,255,0.16); }
   .padBtn.wide { width: 64px; font-size: 13px; }
 </style>
+<script src="../../js/player.js"></script>
 </head>
 <body>
 <div id="stage">
@@ -271,6 +272,7 @@
           <h1>Paused</h1>
           <button class="btn" id="resumeBtn">Resume</button>
           <button class="btn ghost" id="restartFromPauseBtn">Restart</button>
+          <a class="btn ghost" href="../index.html" onclick="event.stopPropagation(); window.location.href='../index.html'; return false;" onpointerdown="event.stopPropagation()" style="display:inline-block;text-decoration:none;text-align:center">Back to Games</a>
         </div>
 
         <div class="overlay hidden" id="gameOverOverlay">
@@ -278,6 +280,7 @@
           <div class="big" id="finalScore">Score: 0</div>
           <div class="best-badge" id="newBestMsg">★ New Best Score! ★</div>
           <div class="tap-restart">Tap to Restart</div>
+          <a class="btn ghost" href="../index.html" onclick="event.stopPropagation(); window.location.href='../index.html'; return false;" onpointerdown="event.stopPropagation()" style="display:inline-block;text-decoration:none;text-align:center">Back to Games</a>
         </div>
       </div>
       <div class="panel" id="nextPanel">

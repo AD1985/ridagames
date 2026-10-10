@@ -11,11 +11,39 @@
   gtag('config', 'G-XS3CQ467NH');
 </script>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
-<title>Home-RidaGames</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+<title>RidaGames — Play Free Browser Arcades, Stories &amp; Curated Gear</title>
+<meta name="description" content="Play free retro browser arcade games, read handcrafted gaming fiction, and explore curated gear on RidaGames. No downloads or installations required.">
+<meta name="keywords" content="free browser games, retro arcade, brick breaker, snake, 2048, gaming stories, gaming india, eel slap">
+<link rel="canonical" href="https://ridagames.com/index.html">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ridagames.com/index.html">
+<meta property="og:title" content="RidaGames — Play Free Browser Arcades, Stories &amp; Curated Gear">
+<meta property="og:description" content="Arcade classics, stories, curated gear, and the latest news — everything to play, read, and explore about gaming.">
+<meta property="og:image" content="home-page-background.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RidaGames — Play Free Browser Arcades, Stories &amp; Curated Gear">
+<meta name="twitter:description" content="Instant-play retro browser games and original fiction. Free on any device.">
+<meta name="twitter:image" content="home-page-background.jpg">
+
+<!-- Structured Data (JSON-LD) for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "RidaGames",
+  "url": "https://ridagames.com/",
+  "description": "Play free browser arcade games, read handcrafted gaming fiction, and explore curated gear."
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg-outer: #e7ddc9;
@@ -41,15 +69,19 @@
   a { color: inherit; }
 
   .frame {
-    max-width: 1240px;
+    max-width: 1760px;
     margin: 0 auto;
-    padding: 22px;
+    padding: 14px 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .sheet {
     background: var(--bg);
     border: 1px solid var(--line);
     border-radius: 28px;
-    padding: 28px 40px 8px;
+    padding: 28px clamp(24px, 4vw, 72px) 24px;
     box-shadow: 0 30px 60px rgba(43, 32, 15, 0.12);
   }
 
@@ -60,7 +92,9 @@
     align-items: center;
     gap: 16px;
     padding: 6px 0 20px;
+    border-bottom: 1px solid var(--line);
   }
+  .brand { text-decoration: none; }
   .brand-name {
     display: block;
     font-family: var(--serif);
@@ -83,38 +117,14 @@
   }
   .nav-links a { text-decoration: none; color: var(--ink); }
   .nav-links a:hover { color: var(--accent); }
-  .nav-icons {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 22px;
-  }
-  .nav-icons a {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    text-decoration: none;
-    color: var(--ink);
-    font-size: 0.88rem;
-  }
-  .nav-icons svg { width: 17px; height: 17px; stroke: var(--ink); flex-shrink: 0; }
-  .menu-bars {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 20px;
-  }
-  .menu-bars span { display: block; height: 2px; background: var(--ink); border-radius: 2px; }
-  .menu-bars span:first-child { width: 100%; }
-  .menu-bars span:last-child { width: 65%; }
 
   /* ---------- Hero ---------- */
   .hero {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 32px;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 40px;
     align-items: center;
-    padding: 24px 0 8px;
+    padding: 38px 0 32px;
   }
   .kicker {
     display: flex;
@@ -130,17 +140,23 @@
   .hero h1 {
     font-family: var(--serif);
     font-weight: 500;
-    font-size: clamp(3rem, 7vw, 5.2rem);
-    line-height: 1.02;
+    font-size: clamp(3rem, 6.5vw, 5rem);
+    line-height: 1.04;
     margin: 0 0 22px;
     letter-spacing: -0.01em;
   }
   .hero-sub {
-    max-width: 42ch;
+    max-width: 44ch;
     color: var(--muted);
-    font-size: 1.02rem;
-    line-height: 1.6;
-    margin: 0 0 26px;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin: 0 0 30px;
+  }
+  .cta-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
   }
   .cta {
     display: inline-flex;
@@ -155,203 +171,290 @@
   }
   .cta span { transition: transform 0.2s ease; }
   .cta:hover span { transform: translateX(4px); }
+  .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding-bottom: 4px;
+    border-bottom: 1.5px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .cta-secondary:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
 
-  .hero-art {
+  /* ---------- Interactive Eel Slap Stage ---------- */
+  .hero-art-slap {
     position: relative;
     border-radius: 26px;
     overflow: hidden;
     aspect-ratio: 3 / 4;
-    box-shadow: 0 24px 48px rgba(20, 14, 6, 0.28);
+    box-shadow: 0 24px 48px rgba(20, 14, 6, 0.22);
+    border: 1px solid var(--line);
+    background: radial-gradient(circle at 50% 40%, #fffdf8 0%, #faefe0 70%, #f0dec5 100%);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    cursor: ew-resize;
+    transform: translate(0, 0);
   }
-  .hero-art img {
+
+  /* Impact Screen Shake */
+  @keyframes stageShake {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-4px, 3px); }
+    40% { transform: translate(4px, -3px); }
+    60% { transform: translate(-3px, -2px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0, 0); }
+  }
+  .hero-art-slap.shake {
+    animation: stageShake 0.14s ease-in-out;
+  }
+
+  #slapCanvas {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     display: block;
   }
-  .hero-badge {
+
+  /* Top Bar Overlay */
+  .slap-top-bar {
     position: absolute;
-    top: 18px;
-    left: 18px;
-    background: rgba(248, 243, 232, 0.92);
-    color: var(--accent);
-    font-family: var(--serif);
-    font-size: 0.82rem;
-    letter-spacing: 0.03em;
-    padding: 8px 14px;
-    border-radius: 999px;
-    box-shadow: 0 8px 18px rgba(20, 14, 6, 0.18);
+    top: 14px;
+    left: 14px;
+    right: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 6;
+    pointer-events: none;
   }
 
-  /* ---------- Feature row ---------- */
-  .feature-row {
-    display: grid;
-    grid-template-columns: auto repeat(4, minmax(0, 1fr));
-    align-items: center;
-    gap: 18px;
-    margin: 34px 0 8px;
-    padding: 26px 0;
-    border-top: 1px solid var(--line);
-  }
-  .feature-label {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding-right: 18px;
-    border-right: 1px solid var(--line);
-  }
-  .feature-label h2 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 1.6rem;
-    line-height: 1.08;
-    margin: 0;
-  }
-  .feature-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1px solid var(--line);
+  .slap-badge {
+    background: rgba(248, 243, 232, 0.94);
     color: var(--accent);
-    flex-shrink: 0;
-  }
-  .feature-card {
+    font-family: var(--serif);
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(20, 14, 6, 0.1);
+    border: 1px solid rgba(179, 83, 44, 0.2);
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    pointer-events: auto;
+  }
+
+  .slap-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    pointer-events: auto;
+  }
+
+  /* Weapon Selector Pills */
+  .weapon-selector {
+    display: inline-flex;
+    background: rgba(248, 243, 232, 0.94);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 3px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  .weapon-btn {
+    background: transparent;
+    border: none;
+    font-size: 0.85rem;
+    padding: 4px 8px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    opacity: 0.55;
+    line-height: 1;
+  }
+  .weapon-btn.active {
+    background: var(--accent);
+    opacity: 1;
+    transform: scale(1.08);
+    box-shadow: 0 2px 6px rgba(179, 83, 44, 0.3);
+  }
+
+  .slap-sound-toggle {
+    background: rgba(248, 243, 232, 0.94);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    border-radius: 999px;
+    padding: 6px 11px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.15s ease;
+  }
+  .slap-sound-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  /* Slap Challenge Caption */
+  .slap-hint {
+    position: absolute;
+    bottom: 64px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(34, 29, 21, 0.9);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 9px 18px;
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    max-width: calc(100% - 24px);
+    text-align: center;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Real-time Arcade Stats & Rankings Bar */
+  .slap-stats {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(248, 243, 232, 0.95);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 999px;
+    box-shadow: 0 8px 20px rgba(20, 14, 6, 0.15);
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
     align-items: center;
     gap: 10px;
-    text-decoration: none;
-    color: var(--ink);
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    padding: 18px 12px 14px;
-    text-align: center;
-    box-shadow: 0 10px 24px rgba(43, 32, 15, 0.06);
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
   }
-  .feature-card:hover, .feature-card:focus-visible {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 30px rgba(43, 32, 15, 0.12);
-  }
-  .feature-card svg { width: 28px; height: 28px; stroke: var(--accent); }
-  .feature-card span.feature-name { font-size: 0.86rem; font-weight: 500; }
-  .feature-card--lift { margin-top: -22px; }
-
-  /* ---------- Sections ---------- */
-  main { padding: 12px 0 8px; }
-  .block { padding: 40px 0; border-top: 1px solid var(--line); }
-  .block-head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 22px;
-  }
-  .block-kicker {
-    margin: 0 0 6px;
-    font-size: 0.75rem;
-    letter-spacing: 0.14em;
+  .slap-stats span.accent {
     color: var(--accent);
-    font-weight: 600;
-    text-transform: uppercase;
   }
-  .block-head h2 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 2rem;
+  .slap-stats .rank-chip {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 2px 7px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+  }
+
+  /* Achievement Pop Notification */
+  .achievement-toast {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: #221d15;
+    color: #fff;
+    border: 1px solid #ffd15c;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    z-index: 7;
+    white-space: nowrap;
+  }
+  .achievement-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ---------- Global Leaderboard ---------- */
+  .leaderboard { padding: 6px 0 14px; }
+  .leaderboard-head { margin-bottom: 10px; text-align: center; }
+  .leaderboard h2 {
     margin: 0;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.05rem;
   }
-
-  .card-grid { display: grid; gap: 18px; }
-  .card-grid--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-  .card-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .card-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-  .card {
+  .lb-cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+  .lb-card {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--ink);
+    align-items: center;
+    gap: 2px;
+    padding: 10px 8px;
     background: var(--panel);
     border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 12px;
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
-  }
-  .card:hover, .card:focus-visible {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 32px rgba(43, 32, 15, 0.12);
-  }
-  .card .thumb {
-    position: relative;
-    aspect-ratio: 4 / 3;
     border-radius: 14px;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
+    box-shadow: 0 4px 10px rgba(34, 29, 21, 0.06);
+    text-align: center;
   }
-  .card .thumb .shade {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(20, 14, 6, 0) 55%, rgba(20, 14, 6, 0.38) 100%);
-  }
-  .card .thumb.placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(150deg, var(--ph-1, #f0e2c4), var(--ph-2, #e6d19f));
-  }
-  .card .thumb.placeholder .mark {
-    font-family: var(--serif);
-    font-size: 2rem;
-    color: var(--accent);
-    opacity: 0.85;
-  }
-  .card .title {
-    margin: 0;
-    font-family: var(--serif);
-    font-size: 1.05rem;
-    font-weight: 500;
-  }
-  .card .sub {
-    margin: -8px 0 2px;
-    font-size: 0.82rem;
-    color: var(--muted);
-  }
-  .stories-thumb { --ph-1: #f3e7ce; --ph-2: #e7cfa1; }
-  .store-thumb { --ph-1: #e8ece0; --ph-2: #d3ddc4; }
-  .news-thumb { --ph-1: #e7ebef; --ph-2: #d2dbe2; }
+  .lb-game { font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .lb-score { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--accent); line-height: 1.1; }
+  .lb-player { font-size: 0.78rem; font-weight: 600; color: var(--ink); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
+  main.home-main .hero { padding: 14px 0; }
+  main.home-main .hero h1 { font-size: clamp(2.4rem, 4.6vw, 3.6rem); margin-bottom: 14px; }
+  main.home-main .hero-sub { font-size: 0.95rem; line-height: 1.5; margin-bottom: 16px; }
+  main.home-main .hero-art-slap { aspect-ratio: auto; height: min(44vh, 380px); }
+
+  /* ---------- Footer ---------- */
   footer.site-footer {
     text-align: center;
-    padding: 26px 0 34px;
+    padding: 24px 0 8px;
+    border-top: 1px solid var(--line);
     color: var(--muted);
     font-size: 0.82rem;
+  }
+  footer.site-footer a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+  footer.site-footer a:hover {
+    color: var(--accent);
+    text-decoration: underline;
   }
 
   @media (max-width: 900px) {
-    .sheet { padding: 24px 22px 8px; }
+    .frame { min-height: auto; padding: 18px; }
+    .sheet { padding: 24px 22px 18px; }
     .nav { grid-template-columns: 1fr auto; }
     .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; }
-    .hero-art { aspect-ratio: 16 / 10; order: -1; }
-    .feature-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .feature-label { grid-column: 1 / -1; border-right: none; border-bottom: 1px solid var(--line); padding: 0 0 16px; }
-    .feature-card--lift { margin-top: 0; }
-    .card-grid--5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .lb-cards { grid-template-columns: repeat(2, 1fr); }
+    .hero { grid-template-columns: 1fr; gap: 28px; padding: 24px 0; }
+    .hero-art-slap, main.home-main .hero-art-slap { aspect-ratio: 16 / 11; height: auto; order: -1; max-width: 480px; margin: 0 auto; width: 100%; }
   }
   @media (max-width: 560px) {
     .frame { padding: 12px; }
-    .sheet { padding: 20px 16px 8px; border-radius: 20px; }
-    .nav-icons a span { display: none; }
-    .card-grid--5, .card-grid--3, .card-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .feature-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .block-head { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .sheet { padding: 20px 16px 16px; border-radius: 20px; }
   }
 </style>
 </head>
@@ -359,173 +462,941 @@
   <div class="frame">
     <div class="sheet">
       <header class="nav">
-        <div class="brand">
+        <a class="brand" href="index.html">
           <span class="brand-name">RidaGames</span>
-        </div>
+          <span class="brand-tag">Arcade &bull; Stories</span>
+        </a>
         <nav class="nav-links" aria-label="Primary">
-          <a href="#games">Games</a>
-          <a href="#stories">Stories</a>
-          <a href="#store">Store</a>
-          <a href="#news">News</a>
+          <a href="games/index.html">Games</a>
+          <a href="stories/index.html">Stories</a>
+          <a href="store/index.html">Store</a>
+          <a href="news/index.html">News</a>
         </nav>
-        <div class="nav-icons">
-          <a href="#games">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.2" y2="16.2"></line></svg>
-            <span>Search</span>
-          </a>
-          <a href="#store" aria-label="Store">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l1 12H5L6 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
-          </a>
-          <button class="menu-bars" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')" type="button">
-            <span></span><span></span>
-          </button>
-        </div>
       </header>
 
-      <section class="hero">
-        <div class="hero-copy">
-          <h1>Get Set<br>& Play</h1>
-          <p class="hero-sub">Arcade classics, stories, curated gear, and the latest news — everything to play, read, and explore about gaming in India.</p>
-          <a class="cta" href="#games">Start Playing <span aria-hidden="true">&rarr;</span></a>
-        </div>
-        <div class="hero-art">
-          <span class="hero-badge">&#10022; Featured</span>
-          <img src="home-page-background.jpg" alt="Neon arcade grid illustration with a retro television and game controller">
-        </div>
-      </section>
-
-      <section class="feature-row" aria-label="Quick links">
-        <div class="feature-label">
-          <div>
-            <p class="kicker" style="margin-bottom:8px;"><span class="dot"></span>EXPLORE</p>
-          </div>
-        </div>
-        <a class="feature-card" href="#games">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="9" rx="4"></rect><line x1="7" y1="10.5" x2="7" y2="14.5"></line><line x1="5" y1="12.5" x2="9" y2="12.5"></line><circle cx="16" cy="11" r="1"></circle><circle cx="18.5" cy="13.5" r="1"></circle></svg>
-          <span class="feature-name">Games</span>
-        </a>
-        <a class="feature-card" href="#stories">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6 4.5 9 4.5 12 6c3-1.5 6-1.5 8-.5v13c-2-1-5-1-8 .5-3-1.5-6-1.5-8-.5v-13z"></path><line x1="12" y1="6" x2="12" y2="19"></line></svg>
-          <span class="feature-name">Stories</span>
-        </a>
-        <a class="feature-card feature-card--lift" href="#store">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l1 12H5L6 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
-          <span class="feature-name">Store</span>
-        </a>
-        <a class="feature-card" href="#news">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="16" rx="1"></rect><line x1="6.5" y1="8" x2="13.5" y2="8"></line><line x1="6.5" y1="11.5" x2="13.5" y2="11.5"></line><line x1="6.5" y1="15" x2="10.5" y2="15"></line><path d="M17 8h3a1 1 0 0 1 1 1v9a2 2 0 0 1-2 2H8"></path></svg>
-          <span class="feature-name">News</span>
-        </a>
-      </section>
-
-      <main>
-        <section class="block" id="games" aria-labelledby="games-title">
-          <div class="block-head">
-            <div>
-              <p class="block-kicker">Play Now</p>
-              <h2 id="games-title">Games</h2>
+      <main class="home-main">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="kicker"><span class="dot"></span>RETRO ARCADE &bull; STORIES</p>
+            <h1>Get Set<br>&amp; Play</h1>
+            <p class="hero-sub">Arcade classics, stories, curated gear, and the latest news — everything to play, read, and explore about gaming.</p>
+            
+            <p class="hero-sub">Whether you are a noob or a pro, we are here to give you the best gaming experience.</p>
+            <div class="cta-group">
+              <a class="cta" href="games/index.html">Start Playing <span aria-hidden="true">&rarr;</span></a>
+              <a class="cta-secondary" href="stories/index.html">Read Stories &rarr;</a>
             </div>
           </div>
-          <div class="card-grid card-grid--5">
-            <a class="card" href="games/brick-breaker/index.html">
-              <div class="thumb" style="background-image: url('games/brick-breaker/brick-breaker-background.jpg');"><div class="shade"></div></div>
-              <h3 class="title">Odyssey</h3>
-              <p class="sub">Brick Breaker</p>
-            </a>
-            <a class="card" href="games/snake/index.html">
-              <div class="thumb" style="background-image: url('games/snake/snake-background.jpg');"><div class="shade"></div></div>
-              <h3 class="title">Snake</h3>
-              <p class="sub">Classic Arcade</p>
-            </a>
-            <a class="card" href="games/2048/index.html">
-              <div class="thumb" style="background-image: url('games/2048/2048-background.jpg');"><div class="shade"></div></div>
-              <h3 class="title">2048</h3>
-              <p class="sub">Puzzle</p>
-            </a>
-            <a class="card" href="games/rocket-dodge/index.html">
-              <div class="thumb" style="background-image: url('games/rocket-dodge/rocket-dodge-background.jpg');"><div class="shade"></div></div>
-              <h3 class="title">Rocket Dodge</h3>
-              <p class="sub">One-Button Arcade</p>
-            </a>
-            <a class="card" href="games/block-drop/index.html">
-              <div class="thumb" style="background-image: url('games/block-drop/block-drop-background.jpg');"><div class="shade"></div></div>
-              <h3 class="title">Block Drop</h3>
-              <p class="sub">Falling Block Puzzle</p>
-            </a>
+
+          <!-- Interactive Eel Slap Stage -->
+          <div class="hero-art-slap" id="slapStage" aria-label="Interactive Eel Slap: Move your cursor or swipe left and right to slap!">
+            <!-- Top Bar Controls -->
+            <div class="slap-top-bar">
+              <div class="slap-badge" id="slapBadge">
+                <span>&#10022;</span>
+                <span id="badgeTitle">Eel Slap 3000</span>
+              </div>
+
+              <div class="slap-top-actions">
+                <!-- Weapon Selector -->
+                <div class="weapon-selector" role="group" aria-label="Select slapping weapon">
+                  <button class="weapon-btn active" data-weapon="eel" type="button" title="Slimy Eel">🐟</button>
+                  <button class="weapon-btn" data-weapon="controller" type="button" title="Retro Arcade Controller">🎮</button>
+                  <button class="weapon-btn" data-weapon="golden" type="button" title="Golden Fish">✨</button>
+                </div>
+
+                <!-- Sound Toggle -->
+                <button class="slap-sound-toggle" id="soundBtn" type="button" title="Toggle Slap Audio">
+                  <span id="soundIcon">🔊</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Achievement Toast Notification -->
+            <div class="achievement-toast" id="achievementToast">🏆 Achievement Unlocked!</div>
+
+            <canvas id="slapCanvas"></canvas>
+
+            <!-- Slap Challenge Caption -->
+            <div class="slap-hint" id="slapHint" aria-live="polite">Show your speed in eel slapping</div>
+
+            <!-- Real-time Stats & Speed Rank -->
+            <div class="slap-stats" id="slapStats">
+              <span><strong id="slapCount" class="accent">0</strong> slaps</span>
+              <span>&bull;</span>
+              <span><strong id="slapSpeed" class="accent">0</strong> km/h</span>
+              <span class="rank-chip" id="slapRank">Ready</span>
+            </div>
           </div>
         </section>
 
-        <section class="block" id="stories" aria-labelledby="stories-title">
-          <div class="block-head">
-            <div>
-              <p class="block-kicker">Read</p>
-              <h2 id="stories-title">Stories</h2>
-            </div>
+        <section class="leaderboard" aria-labelledby="leaderboardTitle">
+          <div class="leaderboard-head">
+            <h2 id="leaderboardTitle">Global Leaderboard</h2>
           </div>
-          <div class="card-grid card-grid--3">
-            <a class="card" href="stories/second_chance_player.html">
-              <div class="thumb placeholder stories-thumb"><span class="mark">&#10022;</span></div>
-              <h3 class="title">The Second Chance Player</h3>
-              <p class="sub">A new tale awaits</p>
-            </a>
-            <a class="card" href="stories/meridian_fall.html">
-              <div class="thumb placeholder stories-thumb"><span class="mark">&#10023;</span></div>
-              <h3 class="title">Meridian Fall</h3>
-              <p class="sub">Read the next chapter</p>
-            </a>
-            <a class="card" href="stories/cricket_lover.html">
-              <div class="thumb placeholder stories-thumb"><span class="mark">&#10022;</span></div>
-              <h3 class="title">The Cricket Lover</h3>
-              <p class="sub">Step into another world</p>
-            </a>
-          </div>
-        </section>
-
-        <section class="block" id="store" aria-labelledby="store-title">
-          <div class="block-head">
-            <div>
-              <p class="block-kicker">Shop</p>
-              <h2 id="store-title">Store</h2>
-            </div>
-          </div>
-          <div class="card-grid card-grid--2">
-            <a class="card" href="store/product1.html">
-              <div class="thumb placeholder store-thumb"><span class="mark">&#9670;</span></div>
-              <h3 class="title">Product 1</h3>
-              <p class="sub">Discover what's new</p>
-            </a>
-            <a class="card" href="store/product2.html">
-              <div class="thumb placeholder store-thumb"><span class="mark">&#9671;</span></div>
-              <h3 class="title">Product 2</h3>
-              <p class="sub">Explore our collection</p>
-            </a>
-          </div>
-        </section>
-
-        <section class="block" id="news" aria-labelledby="news-title">
-          <div class="block-head">
-            <div>
-              <p class="block-kicker">Updates</p>
-              <h2 id="news-title">News</h2>
-            </div>
-          </div>
-          <div class="card-grid card-grid--2">
-            <a class="card" href="news/news1.html">
-              <div class="thumb placeholder news-thumb"><span class="mark">&#9679;</span></div>
-              <h3 class="title">News 1</h3>
-              <p class="sub">Latest updates</p>
-            </a>
-            <a class="card" href="news/news2.html">
-              <div class="thumb placeholder news-thumb"><span class="mark">&#9675;</span></div>
-              <h3 class="title">News 2</h3>
-              <p class="sub">Read the latest announcement</p>
-            </a>
-          </div>
+          <div class="lb-cards" id="leaderboardBody"></div>
         </section>
       </main>
 
-      <footer class="site-footer">&copy; RidaGames</footer>
+      <footer class="site-footer">
+        <p>&copy; RidaGames All rights reserved, owned and operated by Gamemart Technology Limited.</p>
+      </footer>
     </div>
   </div>
+
+  <script>
+    // ---------- GLOBAL LEADERBOARD ----------
+    (function() {
+      const leaderboardBody = document.getElementById('leaderboardBody');
+      if (!leaderboardBody) return;
+
+      const DEFAULT_HOLDER = 'dasaki';
+      const globalLeaders = [
+        { game: 'Snake', score: 0, player: DEFAULT_HOLDER, key: 'snakeBest' },
+        { game: 'Block Drop', score: 0, player: DEFAULT_HOLDER, key: 'blockDropBest' },
+        { game: 'Brick Breaker', score: 0, player: DEFAULT_HOLDER, key: 'brickBreakerBest' },
+        { game: 'Rocket Dodge', score: 0, player: DEFAULT_HOLDER, key: 'rocketDodgeBest' },
+        { game: '2048', score: 0, player: DEFAULT_HOLDER, key: '2048Best' }
+      ];
+
+      for (const entry of globalLeaders) {
+        const localBest = Number(localStorage.getItem(entry.key) || 0);
+        let scores = {};
+        try { scores = (JSON.parse(localStorage.getItem('ridagames_scores')) || {})[entry.key] || {}; } catch (e) {}
+        let topName = '', topScore = 0;
+        for (const n in scores) {
+          if (Number(scores[n]) > topScore) { topScore = Number(scores[n]); topName = n; }
+        }
+        if (topScore > entry.score) {
+          entry.score = topScore;
+          entry.player = topName;
+        } else if (localBest > entry.score) {
+          entry.score = localBest;
+          entry.player = sessionStorage.getItem('ridagames_session_name') || 'You';
+        }
+      }
+      const esc = (s) => s.replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+      globalLeaders.sort((a, b) => b.score - a.score);
+
+      leaderboardBody.innerHTML = globalLeaders.map((entry) => (
+        `<div class="lb-card">
+          <span class="lb-game">${entry.game}</span>
+          <span class="lb-score">${entry.score.toLocaleString()}</span>
+          <span class="lb-player">${esc(entry.player)}</span>
+        </div>`
+      )).join('');
+    })();
+  </script>
+
+  <script>
+    // ---------- ADVANCED INTERACTIVE EEL SLAP ENGINE ----------
+    (function() {
+      const stage = document.getElementById('slapStage');
+      const canvas = document.getElementById('slapCanvas');
+      const ctx = canvas.getContext('2d');
+      const hint = document.getElementById('slapHint');
+      const stats = document.getElementById('slapStats');
+      const countEl = document.getElementById('slapCount');
+      const speedEl = document.getElementById('slapSpeed');
+      const rankEl = document.getElementById('slapRank');
+      const soundBtn = document.getElementById('soundBtn');
+      const soundIcon = document.getElementById('soundIcon');
+      const toast = document.getElementById('achievementToast');
+      const weaponBtns = document.querySelectorAll('.weapon-btn');
+
+      let currentWeapon = 'eel'; // 'eel', 'controller', 'golden'
+      let soundEnabled = true;
+      let audioCtx = null;
+      let totalSlaps = 0;
+      let maxSpeedKmh = parseInt(localStorage.getItem('ridagames_max_slap_speed') || '0', 10);
+      let userHasTouched = false;
+
+      // Tracking state
+      let progress = 0.12;        // 0.0 (far left) to 1.0 (far right)
+      let targetProgress = 0.12;
+      let lastProgress = 0.12;
+      let lastTime = performance.now();
+      let velocity = 0;           // Normalized units per millisecond
+      let particles = [];
+      let floatingScores = [];
+      let comicBurst = null;      // Active "WHACK!" or "SPLAT!" text
+
+      // Weapon selector
+      weaponBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          weaponBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentWeapon = btn.getAttribute('data-weapon');
+        });
+      });
+
+      // Sound toggle
+      soundBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        soundEnabled = !soundEnabled;
+        soundIcon.textContent = soundEnabled ? '🔊' : '🔇';
+      });
+
+      function initAudio() {
+        if (!audioCtx && (window.AudioContext || window.webkitAudioContext)) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+      }
+
+      function playSlapSfx(speedFactor, weapon) {
+        if (!soundEnabled) return;
+        initAudio();
+        if (!audioCtx) return;
+
+        try {
+          const now = audioCtx.currentTime;
+          const vol = Math.min(0.85, 0.3 + speedFactor * 0.4);
+
+          if (weapon === 'controller') {
+            // Retro 8-bit plastic click + arcade coin chime
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'square';
+            osc.frequency.setValueAtTime(320, now);
+            osc.frequency.exponentialRampToValueAtTime(880, now + 0.08);
+            gain.gain.setValueAtTime(vol * 0.4, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now);
+          } else if (weapon === 'golden') {
+            // Magic sparkle chime + heavy sub thud
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(80, now);
+            osc.frequency.exponentialRampToValueAtTime(28, now + 0.12);
+            gain.gain.setValueAtTime(vol * 0.8, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now);
+          } else {
+            // Classic wet noise thwack
+            const bufferSize = Math.floor(audioCtx.sampleRate * 0.08);
+            const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+            const data = buffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+              data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (audioCtx.sampleRate * 0.012));
+            }
+            const noise = audioCtx.createBufferSource();
+            noise.buffer = buffer;
+            const filter = audioCtx.createBiquadFilter();
+            filter.type = 'bandpass';
+            filter.frequency.setValueAtTime(1300 + Math.random() * 300, now);
+            filter.Q.setValueAtTime(1.6, now);
+
+            const gain = audioCtx.createGain();
+            gain.gain.setValueAtTime(vol, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.075);
+
+            noise.connect(filter);
+            filter.connect(gain);
+            gain.connect(audioCtx.destination);
+            noise.start(now);
+          }
+        } catch (err) {}
+      }
+
+      // Achievement Toast Notification
+      let toastTimer = null;
+      function showAchievement(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2200);
+      }
+
+      // Handle pointer input and real velocity tracking
+      const pointerHistory = [];
+      let latestRealKmh = 0;
+
+      function handlePointer(clientX) {
+        const now = performance.now();
+        const rect = stage.getBoundingClientRect();
+        const norm = Math.max(0.02, Math.min(0.98, (clientX - rect.left) / rect.width));
+        targetProgress = norm;
+
+        // Record real physical pixel position and timestamp
+        pointerHistory.push({ x: clientX, time: now });
+        while (pointerHistory.length > 1 && now - pointerHistory[0].time > 100) {
+          pointerHistory.shift();
+        }
+
+        // Calculate real physical velocity
+        if (pointerHistory.length >= 2) {
+          const oldest = pointerHistory[0];
+          const dt = Math.max(8, now - oldest.time);
+          const dx = clientX - oldest.x;
+          if (dx > 0) {
+            const pxPerMs = dx / dt; // pixels per millisecond
+            // 0.2 px/ms ~ 10 km/h, 1.0 px/ms ~ 45 km/h, 2.5 px/ms ~ 105 km/h
+            latestRealKmh = Math.min(185, Math.max(5, Math.round(pxPerMs * 44)));
+          }
+        }
+
+        if (!userHasTouched) {
+          userHasTouched = true;
+          stats.style.opacity = '1';
+          initAudio();
+        }
+      }
+
+      stage.addEventListener('pointermove', (e) => {
+        handlePointer(e.clientX);
+      });
+
+      stage.addEventListener('pointerdown', (e) => {
+        handlePointer(e.clientX);
+      });
+
+      stage.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches[0]) {
+          handlePointer(e.touches[0].clientX);
+        }
+      }, { passive: true });
+
+      stage.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches[0]) {
+          handlePointer(e.touches[0].clientX);
+        }
+      }, { passive: true });
+
+      // Canvas resizing with Retina HiDPI
+      let cw = 400;
+      let ch = 533;
+      function resizeCanvas() {
+        const rect = stage.getBoundingClientRect();
+        const dpr = Math.min(2, window.devicePixelRatio || 1);
+        cw = rect.width;
+        ch = rect.height;
+        canvas.width = Math.round(cw * dpr);
+        canvas.height = Math.round(ch * dpr);
+        ctx.resetTransform && ctx.resetTransform();
+        ctx.scale(dpr, dpr);
+      }
+
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      // Slap Impact Trigger
+      const SLAP_THRESHOLD = 0.52;
+      function triggerSlap(kmh) {
+        if (kmh < 25) hint.textContent = "You're slow—give it a proper whack!";
+        else if (kmh < 55) hint.textContent = 'A gentle tap? The eel can take more.';
+        else if (kmh < 90) hint.textContent = "Now that's a proper smack!";
+        else if (kmh < 125) hint.textContent = 'Whoa! The eel felt that one!';
+        else hint.textContent = "LIGHTSPEED! The eel has left the chat.";
+        hint.style.opacity = '1';
+
+        totalSlaps++;
+        countEl.textContent = totalSlaps;
+        speedEl.textContent = Math.round(kmh);
+
+        // Screen shake on hit
+        stage.classList.remove('shake');
+        void stage.offsetWidth; // trigger reflow
+        stage.classList.add('shake');
+
+        // Speed Rankings & Record Check
+        if (kmh > maxSpeedKmh) {
+          maxSpeedKmh = Math.round(kmh);
+          localStorage.setItem('ridagames_max_slap_speed', maxSpeedKmh);
+          showAchievement(`⚡ NEW RECORD: ${maxSpeedKmh} KM/H!`);
+        }
+
+        // Rank Title based on real speed
+        if (kmh < 25) rankEl.textContent = 'Soft Tap 🍃';
+        else if (kmh < 55) rankEl.textContent = 'Solid Smack 💥';
+        else if (kmh < 90) rankEl.textContent = 'FAST SLAP ⚡';
+        else if (kmh < 125) rankEl.textContent = 'SUPERSONIC 🌪️';
+        else rankEl.textContent = 'LIGHTSPEED 🚀';
+
+        // Milestone achievements
+        if (totalSlaps === 1) showAchievement('First Slap! Welcome to the Dojo 🥋');
+        else if (totalSlaps === 5) showAchievement('Combo Striker: 5 Slaps! 🔥');
+        else if (totalSlaps === 12) showAchievement('Fish Master: 12 Slaps! 🏆');
+        else if (totalSlaps === 25) showAchievement('Relentless Champion: 25 Slaps! 👑');
+
+        // Sound volume/punch scales with real speed
+        playSlapSfx(kmh / 70, currentWeapon);
+
+        // Comic text burst
+        const words = ['WHACK!', 'SPLAT!', 'SLAP!', 'BAM!', 'SMACK!'];
+        comicBurst = {
+          text: words[Math.floor(Math.random() * words.length)],
+          x: cw * 0.52,
+          y: ch * 0.44,
+          life: 1.0,
+          scale: 0.8 + Math.random() * 0.4,
+          rot: (Math.random() - 0.5) * 0.4
+        };
+
+        // Floating arcade score text
+        floatingScores.push({
+          text: `+${Math.round(kmh * 10)} PTS`,
+          x: cw * 0.55 + (Math.random() - 0.5) * 40,
+          y: ch * 0.40,
+          vy: -1.6,
+          life: 1.0,
+          color: kmh > 75 ? '#b3532c' : '#7c7161'
+        });
+
+        // Spawn flying droplets and comic stars
+        const numParticles = 16;
+        for (let i = 0; i < numParticles; i++) {
+          const angle = (Math.PI * 0.3) + (Math.random() - 0.5) * 1.6;
+          const speed = (2 + Math.random() * 5.5) * (cw / 400);
+          particles.push({
+            x: cw * 0.52 + (Math.random() - 0.5) * 20,
+            y: ch * 0.46 + (Math.random() - 0.5) * 20,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - 2.8,
+            size: 2.5 + Math.random() * 3.5,
+            color: currentWeapon === 'golden' ? '#ffcc00' : (Math.random() > 0.4 ? '#4ba4b2' : '#f6a838'),
+            life: 1.0,
+            isStar: Math.random() > 0.45
+          });
+        }
+      }
+
+      // Drawing Helper: Star
+      function drawStar(cx, cy, spikes, outerRadius, innerRadius) {
+        let rot = (Math.PI / 2) * 3;
+        let x = cx;
+        let y = cy;
+        const step = Math.PI / spikes;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy - outerRadius);
+        for (let i = 0; i < spikes; i++) {
+          x = cx + Math.cos(rot) * outerRadius;
+          y = cy + Math.sin(rot) * outerRadius;
+          ctx.lineTo(x, y);
+          rot += step;
+          x = cx + Math.cos(rot) * innerRadius;
+          y = cy + Math.sin(rot) * innerRadius;
+          ctx.lineTo(x, y);
+          rot += step;
+        }
+        ctx.lineTo(cx, cy - outerRadius);
+        ctx.closePath();
+        ctx.fill();
+      }
+
+      // Main Render Loop
+      function render(now) {
+        requestAnimationFrame(render);
+
+        const dt = Math.min(32, now - lastTime);
+        lastTime = now;
+
+        // Idle demo wiggle bait until first interaction
+        if (!userHasTouched) {
+          targetProgress = 0.16 + Math.sin(now * 0.0024) * 0.12;
+        }
+
+        // Smooth physics easing
+        progress += (targetProgress - progress) * 0.32;
+
+        // Calculate velocity
+        const dP = progress - lastProgress;
+        velocity = Math.abs(dP) / Math.max(1, dt);
+
+        // Check if crossed the slap line left-to-right
+        if (lastProgress < SLAP_THRESHOLD && progress >= SLAP_THRESHOLD) {
+          // Measure real physical velocity from pointer movement
+          const realKmh = latestRealKmh > 0 ? latestRealKmh : Math.min(160, Math.max(6, Math.round(velocity * 2800)));
+          triggerSlap(realKmh);
+          latestRealKmh = 0; // reset for next strike
+        }
+
+        lastProgress = progress;
+
+        // Clear canvas
+        ctx.clearRect(0, 0, cw, ch);
+
+        // 1. Background subtle retro radial rays & warm vignette
+        const grad = ctx.createRadialGradient(cw * 0.5, ch * 0.45, 10, cw * 0.5, ch * 0.45, cw * 0.85);
+        grad.addColorStop(0, '#fffbf2');
+        grad.addColorStop(0.7, '#f6e8d2');
+        grad.addColorStop(1, '#e8d2b2');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, cw, ch);
+
+        // Background comic speed lines on fast slap
+        if (progress > 0.35 && progress < 0.75 && velocity > 0.008) {
+          ctx.save();
+          ctx.strokeStyle = 'rgba(179, 83, 44, 0.16)';
+          ctx.lineWidth = 2;
+          for (let i = 0; i < 7; i++) {
+            const ly = ch * (0.2 + i * 0.09);
+            ctx.beginPath();
+            ctx.moveTo(0, ly + Math.sin(now * 0.01 + i) * 6);
+            ctx.lineTo(cw * progress, ly);
+            ctx.stroke();
+          }
+          ctx.restore();
+        }
+
+        // 2. CHARACTER (HEAD & BODY) WITH DAMAGE PROGRESSION
+        ctx.save();
+
+        const baseHeadX = cw * 0.52;
+        const baseHeadY = ch * 0.50;
+        const p = progress;
+
+        // Reaction Physics based on progress:
+        let headRot = 0;
+        let headShiftX = 0;
+        let headShiftY = 0;
+        let cheekSquash = 1.0;
+
+        if (p < 0.45) {
+          headRot = -0.05 * (p / 0.45);
+          headShiftX = -4 * (p / 0.45);
+        } else if (p >= 0.45 && p <= 0.65) {
+          const impactPhase = (p - 0.45) / 0.20; // 0 to 1
+          headRot = 0.05 + impactPhase * 0.45;
+          headShiftX = impactPhase * 28;
+          headShiftY = Math.sin(impactPhase * Math.PI) * 8;
+          cheekSquash = 1.0 - Math.sin(impactPhase * Math.PI) * 0.42;
+        } else {
+          const recoil = (p - 0.65) / 0.35;
+          headRot = 0.50 - recoil * 0.15;
+          headShiftX = 28 + recoil * 14;
+          headShiftY = 4;
+        }
+
+        const headCenterX = baseHeadX + headShiftX;
+        const headCenterY = baseHeadY + headShiftY;
+        const headRadius = cw * 0.23;
+
+        // Draw Body / Shoulders
+        ctx.fillStyle = '#b3532c';
+        ctx.beginPath();
+        ctx.ellipse(baseHeadX + headShiftX * 0.3, ch * 0.92, cw * 0.34, ch * 0.22, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Collar / Shirt detail
+        ctx.fillStyle = '#fffdf7';
+        ctx.beginPath();
+        ctx.moveTo(baseHeadX - cw * 0.08, ch * 0.74);
+        ctx.lineTo(baseHeadX, ch * 0.84);
+        ctx.lineTo(baseHeadX + cw * 0.08, ch * 0.74);
+        ctx.fill();
+
+        // Neck
+        ctx.fillStyle = '#f0c79e';
+        ctx.fillRect(headCenterX - cw * 0.09, headCenterY + headRadius * 0.5, cw * 0.18, headRadius * 0.7);
+
+        // Head Base
+        ctx.save();
+        ctx.translate(headCenterX, headCenterY);
+        ctx.rotate(headRot);
+
+        // Left ear
+        ctx.fillStyle = '#f0c79e';
+        ctx.beginPath();
+        ctx.ellipse(-headRadius * 0.95, 0, cw * 0.045, ch * 0.06, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Right ear
+        ctx.beginPath();
+        ctx.ellipse(headRadius * 0.95, 0, cw * 0.045, ch * 0.06, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Face Ellipse (with left cheek squashing on impact!)
+        ctx.fillStyle = '#f7d3ac';
+        ctx.strokeStyle = '#d9a979';
+        ctx.lineWidth = 3;
+
+        ctx.beginPath();
+        ctx.moveTo(0, -headRadius * 1.15);
+        ctx.bezierCurveTo(headRadius * 1.05, -headRadius * 1.1, headRadius * 1.05, headRadius * 0.95, 0, headRadius * 1.18);
+        ctx.bezierCurveTo(-headRadius * cheekSquash * 1.05, headRadius * 0.95, -headRadius * cheekSquash * 1.05, -headRadius * 1.1, 0, -headRadius * 1.15);
+        ctx.fill();
+        ctx.stroke();
+
+        // Slap mark (escalates with more slaps!)
+        if (p > 0.48 || totalSlaps > 0) {
+          const redAlpha = Math.min(0.75, 0.25 + totalSlaps * 0.05);
+          ctx.fillStyle = `rgba(235, 65, 45, ${redAlpha})`;
+          ctx.beginPath();
+          ctx.ellipse(-headRadius * 0.48, headRadius * 0.15, cw * 0.085, ch * 0.075, 0.2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Damage Evolution: Cartoon band-aid if totalSlaps >= 8
+        if (totalSlaps >= 8) {
+          ctx.save();
+          ctx.translate(0, headRadius * 0.05);
+          ctx.rotate(-0.1);
+          ctx.fillStyle = '#edd1a8';
+          ctx.strokeStyle = '#c9a877';
+          ctx.lineWidth = 2;
+          ctx.fillRect(-headRadius * 0.32, -headRadius * 0.08, headRadius * 0.64, headRadius * 0.16);
+          ctx.strokeRect(-headRadius * 0.32, -headRadius * 0.08, headRadius * 0.64, headRadius * 0.16);
+          ctx.restore();
+        }
+
+        // Damage Evolution: Ice-pack on head if totalSlaps >= 16
+        if (totalSlaps >= 16) {
+          ctx.save();
+          ctx.fillStyle = '#77b5d9';
+          ctx.strokeStyle = '#4380a6';
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.ellipse(headRadius * 0.1, -headRadius * 1.25, cw * 0.08, ch * 0.045, 0.2, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+          // Ice pack tie
+          ctx.fillStyle = '#4380a6';
+          ctx.fillRect(headRadius * 0.08, -headRadius * 1.34, 10, 8);
+          ctx.restore();
+        }
+
+        // Hair (gets messier with slaps)
+        ctx.fillStyle = '#2a1e16';
+        ctx.beginPath();
+        ctx.moveTo(-headRadius * 1.05, -headRadius * 0.2);
+        ctx.bezierCurveTo(-headRadius * 1.15, -headRadius * 1.25, -headRadius * 0.3, -headRadius * 1.45, headRadius * 0.2, -headRadius * 1.35);
+        ctx.bezierCurveTo(headRadius * 0.8, -headRadius * 1.35, headRadius * 1.15, -headRadius * 0.8, headRadius * 1.05, -headRadius * 0.2);
+        ctx.bezierCurveTo(headRadius * 0.6, -headRadius * 0.65, 0, -headRadius * 0.7, -headRadius * 0.6, -headRadius * 0.55);
+        ctx.closePath();
+        ctx.fill();
+
+        // Eyes & Eyebrows
+        ctx.strokeStyle = '#2a1e16';
+        ctx.lineWidth = 3.5;
+        ctx.lineCap = 'round';
+
+        if (p < 0.45) {
+          ctx.beginPath();
+          ctx.moveTo(-headRadius * 0.55, -headRadius * 0.28);
+          ctx.lineTo(-headRadius * 0.18, -headRadius * 0.32);
+          ctx.moveTo(headRadius * 0.18, -headRadius * 0.32);
+          ctx.lineTo(headRadius * 0.55, -headRadius * 0.28);
+          ctx.stroke();
+
+          ctx.fillStyle = '#fff';
+          ctx.beginPath();
+          ctx.arc(-headRadius * 0.35, -headRadius * 0.08, cw * 0.038, 0, Math.PI * 2);
+          ctx.arc(headRadius * 0.35, -headRadius * 0.08, cw * 0.038, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = '#2a1e16';
+          ctx.beginPath();
+          ctx.arc(-headRadius * 0.40, -headRadius * 0.08, cw * 0.018, 0, Math.PI * 2);
+          ctx.arc(headRadius * 0.30, -headRadius * 0.08, cw * 0.018, 0, Math.PI * 2);
+          ctx.fill();
+        } else if (p >= 0.45 && p <= 0.65) {
+          ctx.beginPath();
+          ctx.moveTo(-headRadius * 0.50, -headRadius * 0.15);
+          ctx.lineTo(-headRadius * 0.32, -headRadius * 0.06);
+          ctx.lineTo(-headRadius * 0.50, headRadius * 0.02);
+          ctx.moveTo(headRadius * 0.50, -headRadius * 0.15);
+          ctx.lineTo(headRadius * 0.32, -headRadius * 0.06);
+          ctx.lineTo(headRadius * 0.50, headRadius * 0.02);
+          ctx.stroke();
+        } else {
+          ctx.beginPath();
+          ctx.arc(-headRadius * 0.35, -headRadius * 0.08, cw * 0.032, 0, Math.PI * 2);
+          ctx.arc(headRadius * 0.35, -headRadius * 0.08, cw * 0.032, 0, Math.PI * 2);
+          ctx.fillStyle = '#fff';
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = '#b3532c';
+          ctx.beginPath();
+          ctx.arc(-headRadius * 0.35 + Math.sin(now * 0.02) * 5, -headRadius * 0.08, cw * 0.015, 0, Math.PI * 2);
+          ctx.arc(headRadius * 0.35 + Math.cos(now * 0.02) * 5, -headRadius * 0.08, cw * 0.015, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Nose & Mouth
+        ctx.strokeStyle = '#d9a979';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(0, -headRadius * 0.1);
+        ctx.lineTo(headRadius * 0.1, headRadius * 0.18);
+        ctx.lineTo(-headRadius * 0.04, headRadius * 0.22);
+        ctx.stroke();
+
+        ctx.strokeStyle = '#6e3626';
+        ctx.lineWidth = 3.5;
+        if (p < 0.45) {
+          ctx.beginPath();
+          ctx.arc(0, headRadius * 0.36, headRadius * 0.24, 0.2 * Math.PI, 0.8 * Math.PI);
+          ctx.stroke();
+        } else if (p >= 0.45 && p <= 0.65) {
+          ctx.fillStyle = '#6e3626';
+          ctx.beginPath();
+          ctx.ellipse(headRadius * 0.08, headRadius * 0.52, headRadius * 0.25, headRadius * 0.14, 0.15, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          ctx.fillStyle = '#6e3626';
+          ctx.beginPath();
+          ctx.ellipse(0, headRadius * 0.54, headRadius * 0.18, headRadius * 0.16, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#e85d75';
+          ctx.beginPath();
+          ctx.ellipse(headRadius * 0.04, headRadius * 0.62, headRadius * 0.1, headRadius * 0.08, 0, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Dizzy Halo / Orbiting Stars if slapped multiple times
+        if (totalSlaps >= 4 && p > 0.65) {
+          const starAngle = now * 0.006;
+          for (let s = 0; s < 3; s++) {
+            const a = starAngle + (s * Math.PI * 2 / 3);
+            const sx = Math.cos(a) * (headRadius * 0.85);
+            const sy = -headRadius * 1.35 + Math.sin(a) * 12;
+            ctx.fillStyle = '#f6a838';
+            drawStar(sx, sy, 4, 8, 3.5);
+          }
+        }
+
+        ctx.restore(); // Restore Head Transform
+        ctx.restore(); // Restore Character
+
+        // 3. WEAPON PHYSICS (EEL / CONTROLLER / GOLDEN FISH)
+        ctx.save();
+
+        const startX = -cw * 0.35 + p * cw * 1.35;
+        const startY = ch * 0.28 + Math.sin(p * Math.PI * 1.5) * ch * 0.12;
+        const midX = startX + cw * 0.22 + Math.cos(p * Math.PI) * cw * 0.15;
+        const midY = startY + ch * 0.16 + Math.sin(p * Math.PI * 2) * ch * 0.08;
+
+        let headX = startX + cw * 0.46;
+        let headY = startY + ch * 0.12;
+
+        if (p >= 0.48 && p <= 0.62) {
+          headX = headCenterX - headRadius * 0.1 + (p - 0.48) * 40;
+          headY = headCenterY + (p - 0.48) * 30;
+        }
+
+        const splineSteps = 24;
+        const spine = [];
+        for (let i = 0; i <= splineSteps; i++) {
+          const t = i / splineSteps;
+          const bx = (1 - t) * (1 - t) * startX + 2 * (1 - t) * t * midX + t * t * headX;
+          const by = (1 - t) * (1 - t) * startY + 2 * (1 - t) * t * midY + t * t * headY;
+          spine.push({ x: bx, y: by });
+        }
+
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+
+        if (currentWeapon === 'controller') {
+          // --- WEAPON: RETRO ARCADE GAMEPAD WITH WIRE ---
+          // Draw curled wire cable
+          ctx.strokeStyle = '#1e1c19';
+          ctx.lineWidth = 4.5;
+          ctx.beginPath();
+          ctx.moveTo(spine[0].x, spine[0].y);
+          for (let i = 1; i < spine.length - 2; i++) {
+            ctx.lineTo(spine[i].x, spine[i].y);
+          }
+          ctx.stroke();
+
+          // Draw Gamepad Controller at the tip
+          const tip = spine[spine.length - 1];
+          const prev = spine[spine.length - 4];
+          const angle = Math.atan2(tip.y - prev.y, tip.x - prev.x);
+
+          ctx.save();
+          ctx.translate(tip.x, tip.y);
+          ctx.rotate(angle);
+
+          const pw = cw * 0.18;
+          const ph = ch * 0.085;
+
+          // Gamepad body
+          ctx.fillStyle = '#4a4843';
+          ctx.strokeStyle = '#222';
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.roundRect(-pw * 0.5, -ph * 0.5, pw, ph, 8);
+          ctx.fill();
+          ctx.stroke();
+
+          // D-Pad on left
+          ctx.fillStyle = '#111';
+          ctx.fillRect(-pw * 0.38, -6, 12, 12);
+
+          // Action Red Buttons on right
+          ctx.fillStyle = '#b3532c';
+          ctx.beginPath();
+          ctx.arc(pw * 0.22, -3, 5, 0, Math.PI * 2);
+          ctx.arc(pw * 0.34, 3, 5, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.restore();
+        } else {
+          // --- WEAPON: SLIMY EEL OR GOLDEN FISH ---
+          const isGolden = (currentWeapon === 'golden');
+          const bodyColor = isGolden ? '#d4af37' : '#1d4850';
+          const coreColor = isGolden ? '#ffd700' : '#2c7682';
+          const bellyColor = isGolden ? '#fff1a8' : '#e2dfa2';
+
+          for (let i = 0; i < spine.length - 1; i++) {
+            const t = i / spine.length;
+            const width = (8 + Math.sin(t * Math.PI) * 28) * (cw / 400);
+
+            ctx.strokeStyle = bodyColor;
+            ctx.lineWidth = width + 4;
+            ctx.beginPath();
+            ctx.moveTo(spine[i].x, spine[i].y);
+            ctx.lineTo(spine[i + 1].x, spine[i + 1].y);
+            ctx.stroke();
+
+            ctx.strokeStyle = coreColor;
+            ctx.lineWidth = width;
+            ctx.beginPath();
+            ctx.moveTo(spine[i].x, spine[i].y);
+            ctx.lineTo(spine[i + 1].x, spine[i + 1].y);
+            ctx.stroke();
+
+            ctx.strokeStyle = bellyColor;
+            ctx.lineWidth = width * 0.35;
+            ctx.beginPath();
+            ctx.moveTo(spine[i].x, spine[i].y + width * 0.22);
+            ctx.lineTo(spine[i + 1].x, spine[i + 1].y + width * 0.22);
+            ctx.stroke();
+          }
+
+          // Eel Fin
+          ctx.strokeStyle = isGolden ? 'rgba(255, 215, 0, 0.8)' : 'rgba(75, 164, 178, 0.7)';
+          ctx.lineWidth = 4;
+          ctx.beginPath();
+          for (let i = 2; i < spine.length - 4; i += 2) {
+            ctx.lineTo(spine[i].x, spine[i].y - 12);
+          }
+          ctx.stroke();
+
+          // Eel Head & Googly Eyes
+          const tip = spine[spine.length - 1];
+          const prev = spine[spine.length - 3];
+          const eelAngle = Math.atan2(tip.y - prev.y, tip.x - prev.x);
+
+          ctx.save();
+          ctx.translate(tip.x, tip.y);
+          ctx.rotate(eelAngle);
+
+          ctx.fillStyle = coreColor;
+          ctx.beginPath();
+          ctx.ellipse(0, 0, cw * 0.045, ch * 0.032, 0, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.fillStyle = '#fff';
+          ctx.beginPath();
+          ctx.arc(-cw * 0.01, -ch * 0.016, cw * 0.016, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#111';
+          ctx.beginPath();
+          ctx.arc(-cw * 0.01 + (p > 0.5 ? 2 : -2), -ch * 0.016, cw * 0.008, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.strokeStyle = bodyColor;
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.moveTo(cw * 0.02, 0);
+          ctx.lineTo(cw * 0.045, ch * 0.008);
+          ctx.stroke();
+
+          ctx.restore();
+        }
+
+        ctx.restore(); // Restore Weapon
+
+        // 4. PARTICLES
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const pt = particles[i];
+          pt.x += pt.vx;
+          pt.y += pt.vy;
+          pt.vy += 0.28;
+          pt.life -= 0.035;
+
+          if (pt.life <= 0) {
+            particles.splice(i, 1);
+            continue;
+          }
+
+          ctx.save();
+          ctx.globalAlpha = Math.max(0, pt.life);
+          ctx.fillStyle = pt.color;
+
+          if (pt.isStar) {
+            drawStar(pt.x, pt.y, 4, pt.size * 2, pt.size * 0.8);
+          } else {
+            ctx.beginPath();
+            ctx.arc(pt.x, pt.y, pt.size, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          ctx.restore();
+        }
+
+        // 5. FLOATING ARCADE SCORES (+100 PTS)
+        for (let i = floatingScores.length - 1; i >= 0; i--) {
+          const fs = floatingScores[i];
+          fs.y += fs.vy;
+          fs.life -= 0.025;
+
+          if (fs.life <= 0) {
+            floatingScores.splice(i, 1);
+            continue;
+          }
+
+          ctx.save();
+          ctx.globalAlpha = Math.max(0, fs.life);
+          ctx.font = '700 ' + Math.round(cw * 0.05) + 'px "Inter", sans-serif';
+          ctx.fillStyle = fs.color;
+          ctx.textAlign = 'center';
+          ctx.fillText(fs.text, fs.x, fs.y);
+          ctx.restore();
+        }
+
+        // 6. COMIC TEXT BURST ("WHACK!", "SPLAT!")
+        if (comicBurst && comicBurst.life > 0) {
+          comicBurst.life -= 0.04;
+          ctx.save();
+          ctx.globalAlpha = Math.max(0, comicBurst.life);
+          ctx.translate(comicBurst.x, comicBurst.y);
+          ctx.rotate(comicBurst.rot);
+          ctx.scale(comicBurst.scale, comicBurst.scale);
+
+          ctx.fillStyle = '#ffd15c';
+          ctx.strokeStyle = '#b3532c';
+          ctx.lineWidth = 4;
+          drawStar(0, 0, 10, cw * 0.16, cw * 0.09);
+          ctx.stroke();
+
+          ctx.font = '900 ' + Math.round(cw * 0.075) + 'px "Fraunces", Georgia, serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillStyle = '#b3532c';
+          ctx.fillText(comicBurst.text, 0, 0);
+
+          ctx.restore();
+        }
+      }
+
+      // Start the engine!
+      requestAnimationFrame(render);
+    })();
+  </script>
 </body>
 </html>
