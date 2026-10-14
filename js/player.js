@@ -1,4 +1,4 @@
-// Shared player-name prompt + per-game leaderboard records (localStorage).
+// Shared player-name prompt + per-player best scores (localStorage, saved site-wide via leaderboard.js).
 (function () {
   const NAME_KEY = 'ridagames_player_name';
   const BEST_KEYS = ['snakeBest', 'blockDropBest', 'brickBreakerBest', 'rocketDodgeBest', '2048Best'];
@@ -10,29 +10,41 @@
   const SCORES_KEY = 'ridagames_scores';
   const SESSION_KEY = 'ridagames_session_name';
   const readScores = () => { try { return JSON.parse(localStorage.getItem(SCORES_KEY)) || {}; } catch (e) { return {}; } };
-  const origSetItem = Storage.prototype.setItem;
 
-  // Record the current player's score whenever a game saves a new best.
-  Storage.prototype.setItem = function (key, value) {
-    origSetItem.call(this, key, value);
-    if (this === window.localStorage && BEST_KEYS.indexOf(key) !== -1) {
-      const all = readScores();
-      const name = getName() || 'Player';
-      const game = all[key] || (all[key] = {});
-      game[name] = Math.max(game[name] || 0, Number(value) || 0);
-      origSetItem.call(this, SCORES_KEY, JSON.stringify(all));
-    }
-  };
+  const getBest = (key) => Number((readScores()[key] || {})[getName()] || 0);
 
-  // Make each game's own "best" reflect the active player.
-  function applyPlayerBests() {
-    const all = readScores();
+  // Called by each game when a round ends (or the score changes, for 2048).
+  function submitScore(key, score) {
+    score = Math.floor(Number(score) || 0);
     const name = getName();
+    if (BEST_KEYS.indexOf(key) === -1 || !name || score <= getBest(key)) return;
+    const all = readScores();
+    (all[key] || (all[key] = {}))[name] = score;
+    localStorage.setItem(SCORES_KEY, JSON.stringify(all));
+    localStorage.setItem(key, String(score));
+    if (window.RidaLeaderboard) window.RidaLeaderboard.submit(key, name, score);
+  }
+
+  // Make each game's own "best" reflect the active player, and tell the open game.
+  function applyPlayerBests() {
     BEST_KEYS.forEach((k) => {
-      const v = (all[k] && all[k][name]) || 0;
-      if (v) origSetItem.call(localStorage, k, String(v));
+      const v = getBest(k);
+      if (v) localStorage.setItem(k, String(v));
       else localStorage.removeItem(k);
     });
+    window.dispatchEvent(new CustomEvent('ridagames:player', { detail: { name: getName() } }));
+  }
+
+  window.RidaGames = { getName, getBest, submitScore };
+
+  // One-time upload of bests saved in this browser before the site-wide leaderboard existed.
+  const SYNCED_KEY = 'ridagames_scores_synced';
+  if (window.RidaLeaderboard && !localStorage.getItem(SYNCED_KEY)) {
+    const all = readScores();
+    BEST_KEYS.forEach((k) => {
+      Object.keys(all[k] || {}).forEach((n) => { if (clean(n)) window.RidaLeaderboard.submit(k, clean(n), all[k][n]); });
+    });
+    localStorage.setItem(SYNCED_KEY, '1');
   }
 
   // Block game hotkeys while the name dialog is open.

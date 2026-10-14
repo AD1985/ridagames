@@ -154,6 +154,7 @@
     transition: opacity .3s;
   }
 </style>
+<script src="../../js/leaderboard.js"></script>
 <script src="../../js/player.js"></script>
 </head>
 <body>
@@ -277,6 +278,10 @@
   let state = "start"; // start, playing, paused, gameover
   let score = 0, best = Number(localStorage.getItem("snakeBest") || 0);
   document.getElementById("bestVal").textContent = best;
+  window.addEventListener("ridagames:player", () => {
+    best = Number(localStorage.getItem("snakeBest") || 0);
+    document.getElementById("bestVal").textContent = best;
+  });
 
   const START_SPEED = 4;   // cells per second at game start
   const MAX_SPEED = 8;    // cells per second cap
@@ -420,6 +425,7 @@
     shake = 10;
     sfx.death();
     document.getElementById("finalScore").textContent = "Score: " + score;
+    if (window.RidaGames) RidaGames.submitScore("snakeBest", score);
     const isNew = score > best;
     if (isNew) {
       best = score;

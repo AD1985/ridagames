@@ -200,6 +200,7 @@
     gap: 10px;
   }
 </style>
+<script src="../../js/leaderboard.js"></script>
 <script src="../../js/player.js"></script>
 </head>
 <body>
@@ -432,6 +433,8 @@
     }
 
     actuate() {
+      // 2048 can be abandoned mid-game, so record the score as it goes.
+      if (window.RidaGames) RidaGames.submitScore("2048Best", this.score);
       if (this.score > this.best) {
         this.best = this.score;
         localStorage.setItem("2048Best", String(this.best));
@@ -575,6 +578,10 @@
   });
 
   document.getElementById("bestVal").textContent = game.best;
+  window.addEventListener("ridagames:player", () => {
+    game.best = Number(localStorage.getItem("2048Best") || 0);
+    document.getElementById("bestVal").textContent = game.best;
+  });
 })();
 </script>
 </body>

@@ -160,6 +160,7 @@
     transition: opacity .3s;
   }
 </style>
+<script src="../../js/leaderboard.js"></script>
 <script src="../../js/player.js"></script>
 </head>
 <body>
@@ -314,6 +315,10 @@
   let shake = 0;
 
   document.getElementById("bestVal").textContent = best;
+  window.addEventListener("ridagames:player", () => {
+    best = Number(localStorage.getItem("brickBreakerBest") || 0);
+    document.getElementById("bestVal").textContent = best;
+  });
 
   let paddle = { x: LOGICAL_W / 2 - BASE_PADDLE_W / 2, w: BASE_PADDLE_W, targetX: LOGICAL_W / 2 - BASE_PADDLE_W / 2 };
   let balls = [];
@@ -563,6 +568,7 @@
     state = "gameover";
     sfx.gameover();
     document.getElementById("finalScore").textContent = "Score: " + score;
+    if (window.RidaGames) RidaGames.submitScore("brickBreakerBest", score);
     const isNew = score > best;
     if (isNew) {
       best = score;

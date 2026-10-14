@@ -241,6 +241,7 @@
   .padBtn:active { background: rgba(255,255,255,0.16); }
   .padBtn.wide { width: 64px; font-size: 13px; }
 </style>
+<script src="../../js/leaderboard.js"></script>
 <script src="../../js/player.js"></script>
 </head>
 <body>
@@ -410,6 +411,10 @@
 
   const BEST_KEY = "blockDropBest";
   let best = Number(localStorage.getItem(BEST_KEY) || 0);
+  window.addEventListener("ridagames:player", () => {
+    best = Number(localStorage.getItem(BEST_KEY) || 0);
+    updateHud();
+  });
 
   // ---------- Game state ----------
   let board, current, holdType, canHold, bagQueue, queue;
@@ -628,6 +633,7 @@
     state = "over";
     overSince = performance.now();
     current = null;
+    if (window.RidaGames) RidaGames.submitScore(BEST_KEY, score);
     if (score > best) {
       best = score;
       localStorage.setItem(BEST_KEY, String(best));

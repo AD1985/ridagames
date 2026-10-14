@@ -163,6 +163,7 @@
     50% { opacity: 1; transform: scale(1.06); }
   }
 </style>
+<script src="../../js/leaderboard.js"></script>
 <script src="../../js/player.js"></script>
 </head>
 <body>
@@ -252,6 +253,10 @@
   const BEST_KEY = "rocketDodgeBest";
   let best = Number(localStorage.getItem(BEST_KEY) || 0);
   let score = 0;
+  window.addEventListener("ridagames:player", () => {
+    best = Number(localStorage.getItem(BEST_KEY) || 0);
+    updateHud();
+  });
   let state = "ready"; // ready | playing | over
   let overSince = 0;
 
@@ -362,6 +367,7 @@
     state = "over";
     overSince = performance.now();
     shakeTime = 0.35;
+    if (window.RidaGames) RidaGames.submitScore(BEST_KEY, score);
     const isNewBest = score > best;
     if (isNewBest) {
       best = score;

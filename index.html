@@ -544,6 +544,7 @@
     </div>
   </div>
 
+  <script src="js/leaderboard.js"></script>
   <script>
     // ---------- GLOBAL LEADERBOARD ----------
     (function() {
@@ -551,41 +552,51 @@
       if (!leaderboardBody) return;
 
       const DEFAULT_HOLDER = 'dasaki';
-      const globalLeaders = [
-        { game: 'Snake', score: 0, player: DEFAULT_HOLDER, key: 'snakeBest' },
-        { game: 'Block Drop', score: 0, player: DEFAULT_HOLDER, key: 'blockDropBest' },
-        { game: 'Brick Breaker', score: 0, player: DEFAULT_HOLDER, key: 'brickBreakerBest' },
-        { game: 'Rocket Dodge', score: 0, player: DEFAULT_HOLDER, key: 'rocketDodgeBest' },
-        { game: '2048', score: 0, player: DEFAULT_HOLDER, key: '2048Best' }
+      const GAMES = [
+        { game: 'Snake', key: 'snakeBest' },
+        { game: 'Block Drop', key: 'blockDropBest' },
+        { game: 'Brick Breaker', key: 'brickBreakerBest' },
+        { game: 'Rocket Dodge', key: 'rocketDodgeBest' },
+        { game: '2048', key: '2048Best' }
       ];
+      const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-      for (const entry of globalLeaders) {
-        const localBest = Number(localStorage.getItem(entry.key) || 0);
-        let scores = {};
-        try { scores = (JSON.parse(localStorage.getItem('ridagames_scores')) || {})[entry.key] || {}; } catch (e) {}
-        let topName = '', topScore = 0;
-        for (const n in scores) {
-          if (Number(scores[n]) > topScore) { topScore = Number(scores[n]); topName = n; }
-        }
-        if (topScore > entry.score) {
-          entry.score = topScore;
-          entry.player = topName;
-        } else if (localBest > entry.score) {
-          entry.score = localBest;
-          entry.player = sessionStorage.getItem('ridagames_session_name') || 'You';
-        }
-      }
-      const esc = (s) => s.replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-
-      globalLeaders.sort((a, b) => b.score - a.score);
-
-      leaderboardBody.innerHTML = globalLeaders.map((entry) => (
-        `<div class="lb-card">
+      // leadersByKey: { gameKey: [{ player, score }] }, highest first.
+      function render(leadersByKey) {
+        const leaders = GAMES.map((g) => {
+          const top = (leadersByKey[g.key] || [])[0];
+          return { game: g.game, score: top ? Number(top.score) : 0, player: top ? top.player : DEFAULT_HOLDER };
+        });
+        leaders.sort((a, b) => b.score - a.score);
+        leaderboardBody.innerHTML = leaders.map((entry) => (
+          `<div class="lb-card">
           <span class="lb-game">${entry.game}</span>
           <span class="lb-score">${entry.score.toLocaleString()}</span>
           <span class="lb-player">${esc(entry.player)}</span>
         </div>`
-      )).join('');
+        )).join('');
+      }
+
+      // This browser's own records (kept by js/player.js): shown instantly, and as a fallback.
+      function localLeaders() {
+        let all = {};
+        try { all = JSON.parse(localStorage.getItem('ridagames_scores')) || {}; } catch (e) {}
+        const out = {};
+        for (const g of GAMES) {
+          const scores = all[g.key] || {};
+          let best = null;
+          for (const n in scores) {
+            if (!best || Number(scores[n]) > best.score) best = { player: n, score: Number(scores[n]) };
+          }
+          if (best) out[g.key] = [best];
+        }
+        return out;
+      }
+
+      render(localLeaders());
+      if (window.RidaLeaderboard) {
+        RidaLeaderboard.top(1).then((online) => { if (online) render(online); });
+      }
     })();
   </script>
 
